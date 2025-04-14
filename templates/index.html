@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pothole Detection</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> -->
+     <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pothole Detection System</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Detect</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                <h2>{{ prediction }}</h2>
+            </div>
+        {% endif %}
+
+        {% if image %}
+            <div class="image-preview">
+                <h3>Uploaded Image</h3>
+                <img src="{{ url_for('uploaded_file', filename=image) }}" alt="Uploaded Image" class="preview-img">
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

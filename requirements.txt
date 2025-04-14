@@ -1,0 +1,7 @@
+flask
+tensorflow
+numpy
+opencv-python
+glob2
+pymongo
+python-dotenv
